@@ -118,3 +118,40 @@ CryptoPayment "1" -- "1" Payment
 
 @enduml
 ```
+
+## FAQ
+### How to install the package?
+1. Ensure that the package's `composer.json` is properly configured with the required dependencies.
+```
+"extra": {
+        "laravel": {
+            "providers": [
+                "MCXV\\SimpleCart\\SimpleCartServiceProvider"
+            ],
+            "aliases": {
+                "Cart": "MCXV\\SimpleCart\\Facades\\Cart"
+            }
+        }
+    },
+```
+
+2. The main application `composer.json` should include the package as a dependency:
+```json
+"require": {
+    "mcxv/laravel-simple-cart": "^1.0"
+}
+"repositories": [
+    {
+        "type": "path",
+        "url": "path/to/laravel-simple-cart",
+        "options": {
+            "symlink": true
+        }
+    }
+]
+```
+
+3. Run the update command to install the package:
+```bash
+composer update
+```
