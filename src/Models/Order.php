@@ -21,6 +21,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+
+    // Order Status Constants
+    const STATUS_CREATED = 'CREATED'; // Right after order is placed, wait for payment method selection.
+    const STATUS_PENDING = 'PENDING'; // Payment method selected, waiting for payment.
+    const STATUS_COMPLETED = 'COMPLETED'; // Payment received, order is complete.
+    const STATUS_CANCELLED = 'CANCELLED'; // Order cancelled by customer or admin.
+    const STATUS_REFUNDED = 'REFUNDED'; // Payment refunded, order is cancelled.
+    const STATUS_FAILED = 'FAILED'; // Payment failed, order is not completed.
+
     protected $table = 'sc_orders';    
     protected $fillable = [
         'order_number', 

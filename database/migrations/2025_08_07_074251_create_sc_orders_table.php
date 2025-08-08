@@ -32,7 +32,7 @@ return new class extends Migration
             $table->unsignedBigInteger('customer_id')->nullable(); // Foreign key to sc_customers
             $table->foreign('customer_id')->references('id')->on('sc_customers')->onDelete('set null');            
             $table->decimal('total_amount', 10, 2);
-            $table->string('status')->default('PENDING'); // Possible values: PENDING, COMPLETED, CANCELLED, REFUNDED            
+            $table->string('status')->default('CREATED'); // Possible values: PENDING, COMPLETED, CANCELLED, REFUNDED            
             $table->timestamps();
         });
     }
