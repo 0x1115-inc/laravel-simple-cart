@@ -17,16 +17,21 @@
 
 namespace MCXV\SimpleCart\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    use HasFactory;
+
     protected $table = 'sc_products';
 
     protected $fillable = [
         'name', 'description', 'price', 'stock_quantity', 'is_active', 'image_url', 'category'
     ];
 
-    
-    
+    protected static function newFactory()
+    {
+        return \MCXV\SimpleCart\Database\Factories\ProductFactory::new();
+    }
 }
