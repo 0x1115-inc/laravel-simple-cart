@@ -23,7 +23,10 @@ class Order extends Model
 {
     protected $table = 'sc_orders';    
     protected $fillable = [
-        'order_number', 'status', 'total_amount'
+        'order_number', 
+        'customer_id', 
+        'status', 
+        'total_amount'
     ];
 
     public function customer()
@@ -35,5 +38,9 @@ class Order extends Model
     {
         return $this->hasMany(OrderItem::class);
     }
-    
+
+    public function invoice()
+    {
+        return $this->hasOne(Invoice::class);
+    }
 }

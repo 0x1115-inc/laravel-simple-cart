@@ -23,6 +23,8 @@ class OrderItem extends Model
 {
     protected $table = 'sc_order_items';
     protected $fillable = [
+        'order_id',
+        'product_id',
         'quantity', 
         'price' // Price per item at the time of order
     ];
@@ -41,5 +43,4 @@ class OrderItem extends Model
     {
         return $this->belongsTo(Product::class);
     }
-    
 }
