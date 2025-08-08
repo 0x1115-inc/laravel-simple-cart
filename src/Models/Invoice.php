@@ -21,6 +21,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Invoice extends Model
 {
+
+    // Available statuses
+    const STATUS_PENDING = 'PENDING';
+    const STATUS_PARTIAL_FULFILLED = 'PARTIAL_FULFILLED';
+    const STATUS_FULFILLED = 'FULFILLED';
+    const STATUS_SUCCESSED = 'SUCCESSED';
+    const STATUS_EXPIRED = 'EXPIRED';
+
     protected $table = 'sc_invoices';
     
     protected $fillable = [
