@@ -31,6 +31,7 @@ return new class extends Migration
             $table->unsignedBigInteger('order_id'); // Foreign key to sc_orders
             $table->foreign('order_id')->references('id')->on('sc_orders')->onDelete('cascade');
             $table->uuid('invoice_number')->unique();
+            $table->string('gateway_invoice_id')->nullable(); // Unique identifier from the payment gateway
             $table->decimal('total_amount', 10, 2);
             $table->string('status')->default('PENDING'); // Possible values: PENDING, PAID, CANCELLED, REFUNDED
             $table->date('issue_date')->nullable(); // Date when the invoice was issued
