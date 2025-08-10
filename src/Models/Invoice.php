@@ -33,6 +33,7 @@ class Invoice extends Model
     
     protected $fillable = [
         'invoice_number',
+        'gateway_invoice_id',
         'issue_date',
         'due_date',
         'notes',
@@ -48,5 +49,14 @@ class Invoice extends Model
     public function payments()
     {
         return $this->hasMany(Payment::class);
+    }
+
+    public function isExpired(): bool
+    {
+        // Check if the invoice is expired based on the due date
+        return $this->status === self::STATUS_EXPIRED || !in_array($this->status, [
+            self::STATUS_FULFILLED,
+            self::STATUS_SUCCESSED,
+        ]) && $this->due_date < now();
     }
 }
