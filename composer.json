@@ -2,7 +2,7 @@
     "name": "mcxv/laravel-simple-cart",
     "description": "A simple shopping cart package for Laravel",
     "type": "library",
-    "license": "Apache 2.0",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "Duog Lee",
